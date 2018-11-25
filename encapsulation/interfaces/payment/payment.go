@@ -12,16 +12,16 @@ type PaymentOption interface {
 }
 
 type CreditCard struct {
-	owenerName      string
+	ownerName       string
 	cardNumber      string
 	expirationMonth int
 	expirationYear  int
 	securityCode    int
 }
 
-func CreateCreditAccount(owenerName, cardNumber string, expirationMonth, expirationYear, securityCode int) *CreditCard {
+func CreateCreditAccount(ownerName, cardNumber string, expirationMonth, expirationYear, securityCode int) *CreditCard {
 	return &CreditCard{
-		owenerName:      owenerName,
+		ownerName:       ownerName,
 		cardNumber:      cardNumber,
 		expirationMonth: expirationMonth,
 		expirationYear:  expirationYear,
@@ -36,14 +36,14 @@ func (c CreditCard) ProcessPayment(amount float32) bool {
 }
 
 func (c CreditCard) OwnerName() string {
-	return c.owenerName
+	return c.ownerName
 }
 
 func (c CreditCard) SetOwnerName(value string) error {
 	if len(value) == 0 {
-		return errors.New("Invalid owener name provided")
+		return errors.New("Invalid owner name provided")
 	}
-	c.owenerName = value
+	c.ownerName = value
 	return nil
 }
 
